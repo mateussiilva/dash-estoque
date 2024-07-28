@@ -1,6 +1,10 @@
 import streamlit as st
+import pandas as pd
 
-st.title("🎈 My new app")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
-)
+data = pd.DataFrame(pd.read_csv("data.csv"))
+
+estoque,impressao, paineis = st.tabs(["Estoque","Impressao","Paineis"])
+
+with estoque:
+    st.header("Area de estoque de materias")
+    st.table(data)
